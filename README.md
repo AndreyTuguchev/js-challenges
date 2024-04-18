@@ -138,3 +138,34 @@
 
 
 
+
+
+
+4. ### Create a custom sleep function which can pause the code execution for the specified amount of time.
+
+    Use case example:
+    ```javascript
+    console.log(Date.now())
+    await sleepNow(3000) // sleep for 3 seconds
+    console.log(Date.now())
+    ```
+
+    <details>
+    <summary>solution for this challenge</summary>
+    <br>
+    
+    ```javascript
+    sleepNow = function (time){
+        return new Promise((resolve) => {
+            setTimeout( ()=> {
+                resolve();
+            }, time)
+        })
+    }
+    ```
+        
+    </details>
+
+
+
+
