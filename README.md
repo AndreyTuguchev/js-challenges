@@ -97,3 +97,44 @@
 
 
 
+
+
+
+3. ### Create a custom function to flatten an array without built-in methods ( solution in Big O (N) )
+
+    <details>
+    <summary>solution for this challenge</summary>
+    <br>
+    
+    ```javascript
+    function arrayCustomFlatten(arr){
+
+        let tempArr = [];
+
+        let iife = (function customFlattenFn (arr) {
+        
+                arr.forEach( (elm) => {
+        
+                    if ( !Array.isArray(elm) ){
+                        tempArr.push(elm);
+                    }else{
+                        customFlattenFn(elm);            
+                    }
+                })
+                return tempArr;
+            })(arr)
+
+        tempArr = null;
+        return iife;
+    }
+
+    arrayCustomFlatten([1,2, [3,4 , [5]], [[6]] ])  // [1, 2, 3, 4, 5, 6]
+
+    arrayCustomFlatten([ [[[9]]], [7, [[8], [[9]]]] ])  // [9, 7, 8, 9]
+    ```
+        
+    </details>
+
+
+
+
