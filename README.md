@@ -16,8 +16,7 @@
     	let strLength = str.length;
     
     	for ( let i=0; i < strLength; i++){
-    		console.log('i =', i);
-    		console.log('strLength - 1 - i =', strLength - 1 - i);
+    		console.log('i =', i , "  ", 'strLength - 1 - i =', strLength - 1 - i);
     
     		if (str[i] == str[strLength - 1 - i]){
     			isPalindrome = true;
@@ -53,6 +52,48 @@
     ```
         
     </details>
+
+
+
+
+
+
+2. ### Reverse the string ( solution in Big O (log n) )
+
+    <details>
+    <summary>solution for this challenge</summary>
+    <br>
+    
+    ```javascript
+    function reverse (str){
+
+    let tempStr1 = "";
+    let tempStr2 = "";
+    let middleOfStr = Math.floor(str.length / 2) - 1;
+    let rightPointer = middleOfStr;
+
+    for ( let i = str.length - 1; i > middleOfStr; i--){
+        console.log('i =', i , " ", 'rightPointer =', rightPointer);
+
+        tempStr1 += str[i];
+
+        if (-1 !== rightPointer){
+            tempStr2 += str[rightPointer];
+            rightPointer--;
+        }
+    }
+    return tempStr1 + tempStr2;
+    }
+
+    reverse("abcdef");  // 'fedcba'
+
+    reverse("javaScript");  // 'tpircSavaj'
+
+    reverse("Hello, world!");  // '!dlrow ,olleH'
+    ```
+        
+    </details>
+
 
 
 
